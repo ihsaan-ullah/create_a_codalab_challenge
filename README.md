@@ -89,10 +89,18 @@ This challenge is designed for a triplet of datasets:
 
 
 
-
 ## ⚠️ Note
 The data should be in this format: [Data Format](https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat)  
 You can ignore the *SUPER_CATEGORIES* in the data format for this competition. Check the `sample_data` provided in this [Starting Kit](starting_kit/) for reference.
+
+
+
+***
+
+
+
+## Contact 
+In case of any confusion, contact by email : ihsan2131@gmail.com
 
 
 
