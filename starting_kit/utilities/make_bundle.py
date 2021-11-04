@@ -5,6 +5,7 @@
 #########################################################################################
 
 # Isabelle Guyon -- November 16, 2018
+# Edited by Ihsan Ullah -- November 04, 2021
 
 # Script to make a competition bundle from a starting kit.
 # The following files should be provided in a directory "starting_kit"
@@ -14,8 +15,8 @@
 # ingestion_program/					# Code for ingestion of participant submissions				
 # scoring_program/						# Code scoring the results of participant submissions	
 # sample_code_submission/				# Simple example of participant submission
-# sample_data/							# Small sample dataset (subset of the real training set)
-# challenge_data/						# Challenge data in AutoML split format
+# sample_data/							# Small sample dataset (Dataset 0)
+# challenge_data/						# Challenge data in Raw Images Format https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat
 # html_pages/							# HTML documentation pages
 
 # The code tests the "sample_code_submission" with the ingestion and scoring program
@@ -101,7 +102,7 @@ class Bundle:
 		os.system(command_ingestion)
 		# Check that predictions were made:
 		results = ls(os.path.join(starting_kit_dir, '*/*.predict'))
-		if len(results)!=3: 
+		if len(results)!=2: 
 			print("[-] Failed, some prediction files are missing, got only:")
 			print('	{}'.format(results))
 			return 0
@@ -189,33 +190,30 @@ class Bundle:
 		return execution_success
 			
 	def compress_data(self, dir_name, destination):
-		''' Compress data files in AutoML split format. '''
+		''' Compress data files Raw Images Format. '''
 		execution_success = 1
-		file_names = ls(os.path.join(dir_name, '*.*'))
+		file_names = ls(os.path.join(dir_name, '*'))
 		print('    Compressing data files:')
 		print('	{}'.format(file_names))
-		# create zip files for input_data and reference data
-		z_input = zipfile.ZipFile(os.path.join(destination, 'input_data.zip'), mode='w')
+		# create zip files for input_data0
+		z_input0 = zipfile.ZipFile(os.path.join(destination, 'input_data_0.zip'), mode='w')
+		z_input1 = zipfile.ZipFile(os.path.join(destination, 'input_data_1.zip'), mode='w')
+		z_input2 = zipfile.ZipFile(os.path.join(destination, 'input_data_2.zip'), mode='w')
 		z_ref1 = zipfile.ZipFile(os.path.join(destination, 'reference_data_1.zip'), mode='w')
 		z_ref2 = zipfile.ZipFile(os.path.join(destination, 'reference_data_2.zip'), mode='w')
 		try:
 			for file_name in file_names:
-				[dirnm, filenm] = os.path.split(file_name)
-				# Add file to the zip file
-				# first parameter file to zip, second filename in zip
-				if filenm.find('valid.solution')==-1 and filenm.find('test.solution')==-1 and filenm.find('private.info')==-1:
-					#print('Add {} to input'.format(filenm))
-					z_input.write(file_name, filenm, compress_type=self.compression)
-				if filenm.find('public.info')>=0:
-					#print('Add {} to refs'.format(filenm))
-					z_ref1.write(file_name, filenm, compress_type=self.compression)
-					z_ref2.write(file_name, filenm, compress_type=self.compression) 
-				if filenm.find('valid.solution')>=0:
-					#print('Add {} to ref1'.format(filenm))
-					z_ref1.write(file_name, filenm, compress_type=self.compression)
-				if filenm.find('test.solution')>=0:
-					#print('Add {} to ref2'.format(filenm))
-					z_ref2.write(file_name, filenm, compress_type=self.compression) 
+				if os.path.isfile(file_name):
+					[dirnm, filenm] = os.path.split(file_name)
+					z_input0.write(file_name, filenm, compress_type=self.compression)
+				else:
+					for image_file in os.listdir(file_name):
+						[dirnm, filenm] = os.path.split(image_file)
+						full_file_name = os.path.join(file_name, image_file)
+						file_name_to_save = os.path.join("images", filenm)
+						z_input0.write(full_file_name,file_name_to_save, compress_type=self.compression)
+                
+			z_input1
 			self.starting_kit_files += ['sample_code_submission.zip', 'sample_result_submission.zip', 'sample_trained_submission.zip'] 
 			print('[+] Success')          	
 		except:
@@ -223,7 +221,9 @@ class Bundle:
 			execution_success = 0
 		finally:
 			# Close the files
-			z_input.close()
+			z_input0.close()
+			z_input1.close()
+			z_input2.close()
 			z_ref1.close()
 			z_ref2.close()
 		return execution_success
@@ -343,12 +343,16 @@ class Bundle:
 			zf.close() 	
 		return execution_success
 		
+	# def get_data_name(self):
+	# 	''' Get the name of the dataset.'''
+	# 	file_names = ls(os.path.join(self.sample_data, '*.*'))
+	# 	[dirnm, filenm] = os.path.split(file_names[0])
+	# 	lnm = filenm.split('_')
+	# 	return lnm[0]
 	def get_data_name(self):
 		''' Get the name of the dataset.'''
-		file_names = ls(os.path.join(self.sample_data, '*.*'))
-		[dirnm, filenm] = os.path.split(file_names[0])
-		lnm = filenm.split('_')
-		return lnm[0]
+		
+		return 'insect_challenge' 
 
 #################################################
 # 					MAIN PROGRAM
@@ -397,7 +401,7 @@ if __name__== "__main__":
 		
 	print("\n\n##############################################################")
 	print("##############################################################")
-	print("#\n#       Processing bundle : {}       #\n#".format(destination))
+	print("#\n# Processing bundle : {} #\n#".format(destination))
 	print("##############################################################")
 	print("##############################################################")
 	print("\nUsing starting_kit_dir: {}".format(starting_kit_dir))

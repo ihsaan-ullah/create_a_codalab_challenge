@@ -4,6 +4,6 @@ Usage (1) with sample data only:
 	`python make_bundle.py`
 	
 Usage (2) with big data:
-	`python make_bundle.py ../ ../../FILES/iris`
+	`python make_bundle.py ../ ../../FILES/Insects`
 	
-Change the name "iris"  to the name of your dataset.
+Change the name "Insects"  to the name of your dataset.

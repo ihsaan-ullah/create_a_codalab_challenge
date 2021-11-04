@@ -23,7 +23,7 @@ except ImportError:
 
 import numpy as np
 import pandas as pd
-import cv2
+from skimage import io
 from sklearn.model_selection import train_test_split
 import json
 import os
@@ -214,8 +214,8 @@ def read_data(data_dir):
     data_dict['train_labels'] = train_data[CATEGORY_COLUMN].values
     data_dict['test_labels'] = test_data[CATEGORY_COLUMN].values
     
-    data_dict['train_labels_num'] =  train_data['label_cat'].cat.codes.values
-    data_dict['test_labels_num'] = test_data['label_cat'].cat.codes.values
+    data_dict['train_labels_num'] =  np.asarray(train_data['label_cat'].cat.codes.values)
+    data_dict['test_labels_num'] = np.asarray(test_data['label_cat'].cat.codes.values)
     
     
     data_dict['train_data'] = train_data[IMAGE_COLUMN].values
@@ -235,18 +235,18 @@ def read_data(data_dir):
     
     for image_name in data_dict['train_data']:
         file = IMAGES_PATH+"/"+image_name
-        img = cv2.imread(file)
-        img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        train_images.append(img_rgb)
+        img = io.imread(file)
+        # img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        train_images.append(img)
 
     for image_name in data_dict['test_data']:
         file = IMAGES_PATH+"/"+image_name
-        img = cv2.imread(file)
-        img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        test_images.append(img_rgb)
+        img = io.imread(file)
+        # img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        test_images.append(img)
         
-    data_dict['train_images'] = train_images
-    data_dict['test_images'] = test_images
+    data_dict['train_images'] = np.asarray(train_images)
+    data_dict['test_images'] = np.asarray(test_images)
 
   
     print("-------------------------------------")

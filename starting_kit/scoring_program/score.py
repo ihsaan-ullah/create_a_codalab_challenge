@@ -21,12 +21,15 @@ import libscores
 import my_metric
 import yaml
 from libscores import *
+import solution       
+from solution import read_solutions
 
 # Default I/O directories:
 root_dir = "../"
 default_solution_dir = root_dir + "sample_data"
 default_prediction_dir = root_dir + "sample_result_submission"
 default_score_dir = root_dir + "scoring_output"
+default_data_name = "insect_challenge"
 
 # Debug flag 0: no debug, 1: show all scores, 2: also show version amd listing of dir
 debug_mode = 0
@@ -46,17 +49,23 @@ if __name__ == "__main__":
         solution_dir = default_solution_dir
         prediction_dir = default_prediction_dir
         score_dir = default_score_dir
+        data_name = default_data_name
     elif len(argv) == 3: # The current default configuration of Codalab
         solution_dir = os.path.join(argv[1], 'ref')
         prediction_dir = os.path.join(argv[1], 'res')
         score_dir = argv[2]
+        data_name = default_data_name
     elif len(argv) == 4:
         solution_dir = argv[1]
         prediction_dir = argv[2]
         score_dir = argv[3]
+        data_name = default_data_name
     else: 
         swrite('\n*** WRONG NUMBER OF ARGUMENTS ***\n\n')
         exit(1)
+
+    import solution       
+    from solution import read_solutions
         
     # Create the output directory, if it does not already exist and open output files
     mkdir(score_dir)
@@ -65,39 +74,43 @@ if __name__ == "__main__":
 
     # Get the metric
     metric_name, scoring_function = get_metric()
-
-    # Get all the solution files from the solution directory
-    solution_names = sorted(ls(os.path.join(solution_dir, '*.solution')))
-
-    # Loop over files in solution directory and search for predictions with extension .predict having the same basename
-    for i, solution_file in enumerate(solution_names):
+    print("###-------------------------------------###")
+    print("### Using metric : ", metric_name)
+    print("###-------------------------------------###\n\n")
+    
+    
+    #Solution Arrays
+    # 3 arrays: train, validation and test
+    solution_names, solutions = read_solutions(solution_dir)
+ 
+    for i, solution_name in enumerate(solution_names):
+        
         set_num = i + 1  # 1-indexed
         score_name = 'set%s_score' % set_num
-
-        # Extract the dataset name from the file name
-        basename = solution_file[-solution_file[::-1].index(filesep):-solution_file[::-1].index('.') - 1]
-
         try:
-            # Get the last prediction from the res subdirectory (must end with '.predict')
-            predict_file = ls(os.path.join(prediction_dir, basename + '*.predict'))[-1]
-            if (predict_file == []): raise IOError('Missing prediction file {}'.format(basename))
-            predict_name = predict_file[-predict_file[::-1].index(filesep):-predict_file[::-1].index('.') - 1]
+
+            # Get the train prediction from the res subdirectory (must end with '.predict')
+            predict_file = os.path.join(prediction_dir, data_name + '_'+solution_name+'.predict')
+            if not os.path.isfile(predict_file):
+                print("#--ERROR--# "+solution_name.capitalize()+" predict file NOT Found!")
+                raise IOError("#--ERROR--# "+solution_name.capitalize()+" predict file NOT Found!")
+
             # Read the solution and prediction values into numpy arrays
-            solution = read_array(solution_file)
             prediction = read_array(predict_file)
-            if (solution.shape != prediction.shape): 
-            	solution = convert_to_num(solution) 
-            if (solution.shape != prediction.shape): 	
-            	raise ValueError("Prediction shape={} instead of Solution shape={}".format(prediction.shape, solution.shape))
+            solution = solutions[i]
+            if (len(solution) != len(prediction)): 
+                print("#--ERROR--# Prediction length={} and Solution length={}".format(len(prediction), len(solution)))
+                raise ValueError("Prediction length={} and Solution length={}".format(len(prediction), len(solution)))
 
             try:
                 # Compute the score prescribed by the metric file 
                 score = scoring_function(solution, prediction)
                 print(
-                    "======= Set %d" % set_num + " (" + predict_name.capitalize() + "): " + metric_name + "(" + score_name + ")=%0.12f =======" % score)
+                    "======= Set %d" % set_num + " (" + data_name.capitalize() + "_" + solution_name + "): " + metric_name + "(" + score_name + ")=%0.12f =======" % score)
                 html_file.write(
-                    "<pre>======= Set %d" % set_num + " (" + predict_name.capitalize() + "): " + metric_name + "(" + score_name + ")=%0.12f =======\n" % score)
+                    "<pre>======= Set %d" % set_num + " (" + data_name.capitalize() + "_" + solution_name + "): " + metric_name + "(" + score_name + ")=%0.12f =======\n" % score)
             except:
+                print("#--ERROR--# Error in calculation of the specific score of the task")
                 raise Exception('Error in calculation of the specific score of the task')
 
             if debug_mode > 0:
@@ -107,14 +120,14 @@ if __name__ == "__main__":
         except Exception as inst:
             score = missing_score
             print(
-                "======= Set %d" % set_num + " (" + basename.capitalize() + "): " + metric_name + "(" + score_name + ")=ERROR =======")
+                "======= Set %d" % set_num + " (" + data_name.capitalize() + "_" + solution_name + "): " + metric_name + "(" + score_name + ")=ERROR =======")
             html_file.write(
-                "======= Set %d" % set_num + " (" + basename.capitalize() + "): " + metric_name + "(" + score_name + ")=ERROR =======\n")
+                "======= Set %d" % set_num + " (" + data_name.capitalize() + "_" + solution_name +  "): " + metric_name + "(" + score_name + ")=ERROR =======\n")
             print
             inst
 
-        # Write score corresponding to selected task and metric to the output file
-        score_file.write(score_name + ": %0.12f\n" % score)
+    # Write score corresponding to selected task and metric to the output file
+    score_file.write(score_name + ": %0.12f\n" % score)
 
     # End loop for solution_file in solution_names
 
@@ -134,3 +147,9 @@ if __name__ == "__main__":
         show_platform()
         show_io(prediction_dir, score_dir)
         show_version(scoring_version)
+        
+        
+        
+        
+        
+        
