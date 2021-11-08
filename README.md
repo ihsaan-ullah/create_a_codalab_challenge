@@ -78,11 +78,10 @@ The challenge consists of two phases:
 
 
 This challenge is designed for a triplet of datasets:  
-- `Dataset 0`
-- `Dataset 1`
-- `Dataset 2`
+- `Dataset 0` (to be used as a `sample_data`)
+- `Dataset 1` (to be used in `Data Phase 1`)
+- `Dataset 2` (be used in `Data Phase 2`)
 
-`Dataset 0` will be used as a `sample_data`. `Dataset 1` will be used in `Data Phase 1` and `Dataset 2` will be used in `Data Phase 2`. 
 
 
 ***
