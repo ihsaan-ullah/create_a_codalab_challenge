@@ -73,14 +73,14 @@ A readme file for an overview of the challenge
 
 ## Instructions about datasets
 The challenge consists of two phases:  
-    - `Data Phase 1`
-    - `Data Phase 2`
+- `Data Phase 1`  
+- `Data Phase 2`
 
 
 This challenge is designed for a triplet of datasets:  
-    - `Dataset 0`
-    - `Dataset 1`
-    - `Dataset 2`
+- `Dataset 0`
+- `Dataset 1`
+- `Dataset 2`
 
 `Dataset 0` will be used as a `sample_data`. `Dataset 1` will be used in `Data Phase 1` and `Dataset 2` will be used in `Data Phase 2`. 
 
