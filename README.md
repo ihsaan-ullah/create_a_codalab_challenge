@@ -43,7 +43,7 @@ This directory consists of `scores.html` and `scores.txt` files. These files are
 
 
 5. `sample_data`  
-This directory contains the sample data or *Dataset 0* for the challenge. The dataset should be in this [Data Format](https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat).
+This directory contains the sample data (a subset of *Dataset 0*) for the challenge. The dataset should be in this [Data Format](https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat).
 
 
 6. `sample_code_submission`  
@@ -78,7 +78,7 @@ The challenge consists of two phases:
 
 
 This challenge is designed for a triplet of datasets:  
-- `Dataset 0` (to be used as a `sample_data`)
+- `Dataset 0` (to be used as `public_data`)
 - `Dataset 1` (to be used in `Data Phase 1`)
 - `Dataset 2` (be used in `Data Phase 2`)
 

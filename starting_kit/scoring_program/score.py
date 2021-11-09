@@ -126,8 +126,8 @@ if __name__ == "__main__":
             print
             inst
 
-    # Write score corresponding to selected task and metric to the output file
-    score_file.write(score_name + ": %0.12f\n" % score)
+        # Write score corresponding to selected task and metric to the output file
+        score_file.write(score_name + ": %0.12f\n" % score)
 
     # End loop for solution_file in solution_names
 
