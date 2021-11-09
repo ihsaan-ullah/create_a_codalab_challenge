@@ -112,7 +112,11 @@ git clone https://github.com/ihsaan-ullah/create_a_challenge.git
 cd create_a_challenge/starting_kit/utilities
 ```
 
-2. 
+2. Run the script `make_bundle.py`
+``` 
+python make_budle.py
+```
+This script will create a zip bundle which you can upload to Codalab.
 
 ### Step 2 : Upload Bundle
 
