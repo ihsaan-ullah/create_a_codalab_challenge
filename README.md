@@ -6,6 +6,8 @@ This repository has a sample starting kit which is made specially to work with t
 
 ***
 
+<br><br><br>
+
 ## Understanding the Starting Kit
 
 The starting kit consists of the following directories and files:
@@ -70,6 +72,7 @@ A readme file for an overview of the challenge
 
 ***
 
+<br><br><br>
 
 ## Instructions about datasets
 The challenge consists of two phases:  
@@ -85,6 +88,15 @@ This challenge is designed for a triplet of datasets:
 
 
 ***
+
+<br><br><br>
+
+## How to create a challenge on Codalab?
+Follow the steps below to create a challenge on [Codalab](https://codalab.lisn.upsaclay.fr/).  
+
+⚠️ A sample challenge with the `starting_kit` in this repository is given here: https://codalab.lisn.upsaclay.fr/competitions/74
+
+
 
 
 
