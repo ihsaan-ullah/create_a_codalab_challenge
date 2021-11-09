@@ -1,14 +1,13 @@
-# Starting kit for Bees and Wasps Challenge.
+# Starting kit for Insects Classification Challenge
 
 This challenge uses a Dataset from **MUSÉUM NATIONAL D’HISTOIRE NATURELLE**
     
 The dataset coniststs of total 290,000 images and each image belongs to one of the following classes
 
-1.  Bee
+1. Bee
 2. Wasp
 3. Other insect
 4. Butterfly insect
-5. Other
 
     
 This challenge is about creating and predicting a Machine Learning model and train it with the data provided to classify the images into the mentioned 5 categories. 
