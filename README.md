@@ -141,6 +141,34 @@ This script will create a zip bundle which you can upload to Codalab.
 
 <br><br><br>
 
+
+## How to upload datasets to Codalab?
+Follow the steps below to upload Public Data (`Dataset 0`) and Input/Reference Data (`Dataset 1` and `Dataset 2`) to Codalab 
+
+1. Click `My Competitions` in the top navigation bar
+![My Competitions](images/my_competitions.png)
+
+2. Click `My Datasets`
+![Datasets](images/datasets.png)
+
+3. Click `Create Dataset`
+![Create dataset](images/create_dataset.png)
+
+4. Enter details of the dataset:
+    - Name of dataset
+    - Description of dataset
+    - Select type (*Input Data* for datasets)
+    - Select the zipped dataset and click upload
+
+![Upload dataset](images/upload_dataset.png)
+
+
+
+
+***
+
+<br><br><br>
+
 ## ⚠️ Note
 1. The data should be in this format: [Data Format](https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat)  
 You can ignore the *SUPER_CATEGORIES* in the data format for this competition. Check the `sample_data` provided in this [Starting Kit](starting_kit/) for reference.
@@ -151,6 +179,7 @@ You can ignore the *SUPER_CATEGORIES* in the data format for this competition. C
 
 ***
 
+<br><br><br>
 
 
 ## Contact 
