@@ -102,7 +102,7 @@ Follow the steps below to create a challenge on [Codalab](https://codalab.lisn.u
 2. Login into your account : https://codalab.lisn.upsaclay.fr/accounts/login/
 
 3. Click `My Competitions` in the top navigation bar
-![My Competitions](my_competitions.png)
+![My Competitions](images/my_competitions.png)
 
 
 ***
