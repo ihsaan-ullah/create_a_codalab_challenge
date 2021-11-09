@@ -98,7 +98,9 @@ Follow the steps below to create a challenge on [Codalab](https://codalab.lisn.u
 
 
 
+***
 
+<br><br><br>
 
 ## ⚠️ Note
 The data should be in this format: [Data Format](https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat)  
