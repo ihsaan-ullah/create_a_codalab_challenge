@@ -162,10 +162,10 @@ Follow the steps below to upload Public Data (`Dataset 0`) and Input/Reference D
 
 ![Upload dataset](images/upload_dataset.png)
 
-⚠️ Note  
-    - For Public Data (`Dataset 0`) choose the type *Public Data*
-    - For Input Data (`Dataset 1`, `Dataset 2`) choose *Input Data*
-    - Choose other types for `scoring_program`, `ingestion_program` or `starting_kit`.
+##### ⚠️ Note  
+- For Public Data (`Dataset 0`) choose the type *Public Data*
+- For Input Data (`Dataset 1`, `Dataset 2`) choose *Input Data*
+- Choose other types for `scoring_program`, `ingestion_program` or `starting_kit`.
 
 
 ***
