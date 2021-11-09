@@ -97,7 +97,22 @@ Follow the steps below to create a challenge on [Codalab](https://codalab.lisn.u
 ⚠️ A sample challenge with the `starting_kit` in this repository is given here: https://codalab.lisn.upsaclay.fr/competitions/74
 
 
+### Step 0 : Clone this repository
+
+
+``` 
+git clone https://github.com/ihsaan-ullah/create_a_challenge.git
+```
+
+
 ### Step 1 : Create Competition Bundle
+
+1. go to `utilities folder`
+``` 
+cd create_a_challenge/starting_kit/utilities
+```
+
+2. 
 
 ### Step 2 : Upload Bundle
 
