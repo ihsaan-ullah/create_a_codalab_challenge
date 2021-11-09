@@ -157,12 +157,15 @@ Follow the steps below to upload Public Data (`Dataset 0`) and Input/Reference D
 4. Enter details of the dataset:
     - Name of dataset
     - Description of dataset
-    - Select type (*Input Data* for datasets)
+    - Select type
     - Select the zipped dataset and click upload
 
 ![Upload dataset](images/upload_dataset.png)
 
-
+⚠️ Note  
+    - For Public Data (`Dataset 0`) choose the type *Public Data*
+    - For Input Data (`Dataset 1`, `Dataset 2`) choose *Input Data*
+    - Choose other types for `scoring_program`, `ingestion_program` or `starting_kit`.
 
 
 ***
@@ -174,6 +177,7 @@ Follow the steps below to upload Public Data (`Dataset 0`) and Input/Reference D
 You can ignore the *SUPER_CATEGORIES* in the data format for this competition. Check the `sample_data` provided in this [Starting Kit](starting_kit/) for reference.
 
 2. Make sure that the `sample_data` directory has a very small subset of `Dataset 0`.
+
 
 
 
