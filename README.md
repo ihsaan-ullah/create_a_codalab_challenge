@@ -94,7 +94,7 @@ This challenge is designed for a triplet of datasets:
 ## How to create a challenge on Codalab?
 Follow the steps below to create a challenge on [Codalab](https://codalab.lisn.upsaclay.fr/).  
 
-⚠️ A sample challenge with the `starting_kit` in this repository is given here: https://codalab.lisn.upsaclay.fr/competitions/74
+⚠️ A sample challenge with the `starting_kit` in this repository is given here: https://codalab.lisn.upsaclay.fr/competitions/201
 
 
 ### Step 0 : Clone this repository
