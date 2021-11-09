@@ -5,7 +5,7 @@
 #########################################################################################
 
 # Isabelle Guyon -- November 16, 2018
-# Edited by Ihsan Ullah -- November 04, 2021
+# Edited by Ihsan Ullah -- November 09, 2021
 
 # Script to make a competition bundle from a starting kit.
 # The following files should be provided in a directory "starting_kit"
@@ -15,7 +15,7 @@
 # ingestion_program/					# Code for ingestion of participant submissions				
 # scoring_program/						# Code scoring the results of participant submissions	
 # sample_code_submission/				# Simple example of participant submission
-# sample_data/							# Small sample dataset (Dataset 0)
+# sample_data/							# Small sample dataset (subset of Dataset 0)
 # challenge_data/						# Challenge data in Raw Images Format https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat
 # html_pages/							# HTML documentation pages
 
@@ -41,7 +41,7 @@ class Bundle:
 	def __init__(self, starting_kit_dir, big_data_dir):
 		''' Defines a bundle structure.'''
 		# Starting kit template
-		self.starting_kit_files = ['README.md', 'README.ipynb', 'scoring_program', 'ingestion_program', 'sample_code_submission', 'sample_data']
+		self.starting_kit_files = ['logo.jpg', 'README.md', 'README.ipynb', 'scoring_program', 'ingestion_program', 'sample_code_submission', 'sample_data']
 		self.starting_kit_dir = starting_kit_dir
 		# Data and code
 		self.big_data = big_data_dir
@@ -141,17 +141,23 @@ class Bundle:
 		else:
 			data_dir = self.sample_data
 		execution_success *= self.compress_data(data_dir,  destination)
+		
 		# Move other relevant file to destination
 		execution_success *= self.move_other_files(destination)
+		
 		# Zip the sample submissions and add them to the starting kit directory
 		execution_success *= self.compress_sample_submission(self.sample_code_submission, 'sample_code_submission')
 		execution_success *= self.compress_sample_submission(self.sample_code_submission, 'sample_trained_submission')
 		execution_success *= self.compress_sample_submission(self.sample_result_submission, 'sample_result_submission')
+
+		
+
 		# Add the starting kit
 		print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 		print("%% ZIP %% 2/3 %% ZIP %% 2/3 %% ZIP %%")
 		print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 		execution_success *= self.compress_starting_kit(destination)
+		
 		# Zip the overall submission
 		print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 		print("%% ZIP %% 3/3 %% ZIP %% 3/3 %% ZIP %%")
@@ -196,6 +202,7 @@ class Bundle:
 		print('    Compressing data files:')
 		print('	{}'.format(file_names))
 		# create zip files for input_data0
+		z_sampledata = zipfile.ZipFile(os.path.join(destination, 'sample_data.zip'), mode='w')
 		z_input0 = zipfile.ZipFile(os.path.join(destination, 'input_data_0.zip'), mode='w')
 		z_input1 = zipfile.ZipFile(os.path.join(destination, 'input_data_1.zip'), mode='w')
 		z_input2 = zipfile.ZipFile(os.path.join(destination, 'input_data_2.zip'), mode='w')
@@ -205,15 +212,14 @@ class Bundle:
 			for file_name in file_names:
 				if os.path.isfile(file_name):
 					[dirnm, filenm] = os.path.split(file_name)
-					z_input0.write(file_name, filenm, compress_type=self.compression)
+					z_sampledata.write(file_name, filenm, compress_type=self.compression)
 				else:
 					for image_file in os.listdir(file_name):
 						[dirnm, filenm] = os.path.split(image_file)
 						full_file_name = os.path.join(file_name, image_file)
 						file_name_to_save = os.path.join("images", filenm)
-						z_input0.write(full_file_name,file_name_to_save, compress_type=self.compression)
+						z_sampledata.write(full_file_name,file_name_to_save, compress_type=self.compression)
                 
-			z_input1
 			self.starting_kit_files += ['sample_code_submission.zip', 'sample_result_submission.zip', 'sample_trained_submission.zip'] 
 			print('[+] Success')          	
 		except:
@@ -221,6 +227,7 @@ class Bundle:
 			execution_success = 0
 		finally:
 			# Close the files
+			z_sampledata.close()
 			z_input0.close()
 			z_input1.close()
 			z_input2.close()
@@ -294,17 +301,32 @@ class Bundle:
 				# Add file to the zip file
 				# first parameter file to zip, second filename in zip
 				dirname = os.path.join(self.starting_kit_dir, filenm_)
+				
 				#print('	+ Adding {}'.format(dirname))
 				zf.write(dirname, filenm_, compress_type=self.compression)
+				
 				if os.path.isdir(dirname):
 					#print('	+ Adding {} contents:'.format(dirname))
 					file_names = ls(os.path.join(dirname, '*'))
-					#print(file_names)
+					# print(file_names)
 					for file_name in file_names:
 						if(file_name.find('__pycache__')==-1 and file_name.find('.pyc')==-1):
-							#print(file_name)
-							[dirnm, filenm] = os.path.split(file_name)
-							zf.write(file_name, os.path.join(filenm_,filenm), compress_type=self.compression)
+							# print(file_name)
+							# [dirnm, filenm] = os.path.split(file_name)
+							# zf.write(file_name, os.path.join(filenm_,filenm), compress_type=self.compression)
+							if os.path.isfile(file_name):
+								[dirnm, filenm] = os.path.split(file_name)
+								zf.write(file_name, os.path.join(filenm_,filenm), compress_type=self.compression)
+							else:
+								# for images folder in sample data
+								for image_file in os.listdir(file_name):
+									[dirnm, filenm] = os.path.split(image_file)
+									full_file_name = os.path.join(file_name, image_file)
+									
+									file_name_to_save = os.path.join(filenm_, "images", filenm)
+									zf.write(full_file_name,file_name_to_save, compress_type=self.compression)
+				
+
 			print('[+] Success')
 		except:
 			print('[-] An error occurred while zipping starting kit files: ' + self.starting_kit_dir)

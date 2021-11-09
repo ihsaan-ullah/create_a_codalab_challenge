@@ -7,20 +7,12 @@
 # This is the "ingestion program" written by the organizers.
 # This program also runs on the challenge platform to test your code.
 #
-# The input directory input_dir (e.g. sample_data/) contains the dataset(s), including:
-#   dataname/dataname_feat.name          -- the feature names (column headers of data matrix)
-# 	dataname/dataname_feat.type          -- the feature type "Numerical", "Binary", or "Categorical" (Note: if this file is abscent, get the feature type from the dataname.info file)
-#   dataname/dataname_label.name         -- the label names (column headers of the solution matrix)
-# 	dataname/dataname_public.info        -- public information on the dataset
-# 	dataname/dataname_test.data          -- training, validation and test data (solutions/target values are given for training data only)
-# 	dataname/dataname_train.data
-# 	dataname/dataname_train.solution
-# 	dataname/dataname_valid.data
+# The input directory input_dir (e.g. sample_data/) contains the dataset in this format: https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat
 #
 # The output directory output_dir (e.g. sample_result_submission/) 
 # will receive the predicted values (no subdirectories):
+# 	dataname_train.predict
 # 	dataname_test.predict            
-# 	dataname_valid.predict
 #
 # The code directory submission_program_dir (e.g. sample_code_submission/) should contain your 
 # code submission model.py (an possibly other functions it depends upon).
@@ -40,6 +32,7 @@
 # Originally inspired by code code: Ben Hamner, Kaggle, March 2013
 # Modified by Ivan Judson and Christophe Poulain, Microsoft, December 2013
 # Last modifications Isabelle Guyon, October 2017
+# Modified by Ihsan Ullah, 09 November 2021
 
 # =========================== BEGIN OPTIONS ==============================
 # Verbose mode: 
