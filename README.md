@@ -189,11 +189,11 @@ Follow the steps below to change datasets in your competition.
 4. Scroll down to the section `Phases`. 
 
 5. For ***Phase 1*** select the correct *Input Data* and *Public Data* from the dropdown menu  
-Public Data : `Dataset 0`
-Input Data : `Dataset 1`
+    - Public Data : `Dataset 0`  
+    - Input Data : `Dataset 1`
 
 6. For ***Phase 2*** select only the relevant *Input Data* from the dropdown menu  
-Input Data : `Dataset 2`
+    - Input Data : `Dataset 2`
 
 7. Click the `Submit` button at the bottom of the page to save changes.
 
