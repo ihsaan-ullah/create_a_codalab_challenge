@@ -114,7 +114,7 @@ cd create_a_challenge/starting_kit/utilities
 
 2. Run the script `make_bundle.py`
 ``` 
-python make_budle.py
+python make_bundle.py
 ```
 This script will create a zip bundle which you can upload to Codalab.
 
