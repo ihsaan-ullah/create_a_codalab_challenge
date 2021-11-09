@@ -1,39 +1,43 @@
-Starting kit for Bees and Wasps Challenge.
+# Starting kit for Bees and Wasps Challenge.
 
-This challenge uses a Dataset from MUSÉUM NATIONAL D’HISTOIRE NATURELLE
+This challenge uses a Dataset from **MUSÉUM NATIONAL D’HISTOIRE NATURELLE**
     
 The dataset coniststs of total 290,000 images and each image belongs to one of the following classes
 
-    1)  Bee
-    2)  Wasp
-    3)  Other insect
-    4)  Butterfly insect
-    5)  Other
+1.  Bee
+2. Wasp
+3. Other insect
+4. Butterfly insect
+5. Other
 
     
 This challenge is about creating and predicting a Machine Learning model and train it with the data provided to classify the images into the mentioned 5 categories. 
 
-The challenge consists of two phases:
 
-    1) Development Phase
-        In this phase you can train a model and submit at most 20 submissions per day to check the score of your model and to see how good your model is performing. Once you are satisfied with your performance then you can try the Final Phase.
-    2) Final Phase
-        In this phase you can submit only once so it is advised to do it when you are ready for the final submission.
+### Phases
+This challenge conists of two phases:  
+
+1. `Development Phase`
+In this phase you can train a model and submit at most 20 submissions per day to check the score of your model and to see how good your model is performing. Once you are satisfied with your performance then you can try the Final Phase.
+    
+2. `Final Phase`
+In this phase you can submit only once so it is advised to do it when you are ready for the final submission.
     
     
 
-References and credits: 
+### References and credits: 
 
-    1)  MUSÉUM NATIONAL D’HISTOIRE NATURELLE (https://www.mnhn.fr/)
-    2)  SPIPOLL (https://www.spipoll.org/)      
-    3)  Université Paris Saclay (https://www.universite-paris-saclay.fr/)
-    4)  ChaLearn (http://www.chalearn.org/)
+1. MUSÉUM NATIONAL D’HISTOIRE NATURELLE (https://www.mnhn.fr/)
+2. SPIPOLL (https://www.spipoll.org/)      
+3. Université Paris Saclay (https://www.universite-paris-saclay.fr/)
+4. ChaLearn (http://www.chalearn.org/)
 
 
-Prerequisites:
+### Prerequisites:
 Install Anaconda Python 3.6.6 
 
-Usage:
+
+### Usage:
 
 (1) If you are a challenge participant:
 
