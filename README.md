@@ -97,6 +97,13 @@ Follow the steps below to create a challenge on [Codalab](https://codalab.lisn.u
 ⚠️ A sample challenge with the `starting_kit` in this repository is given here: https://codalab.lisn.upsaclay.fr/competitions/74
 
 
+1. Create an account on the Codalab Website: https://codalab.lisn.upsaclay.fr/accounts/signup/
+
+2. Login into your account : https://codalab.lisn.upsaclay.fr/accounts/login/
+
+3. Click `My Competitions` in the top navigation bar
+![My Competitions](my_competitions.png)
+
 
 ***
 
