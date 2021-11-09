@@ -183,6 +183,20 @@ Follow the steps below to change datasets in your competition.
 2. Click `Competitions I'm Running`
 ![Comp I'm running](images/competitions_i_am_running.png)
 
+3. Click `Edit Competition`
+![Edit competition](images/edit_competition.png)
+
+4. Scroll down to the section `Phases`. 
+
+5. For ***Phase 1*** select the correct *Input Data* and *Public Data* from the dropdown menu  
+Public Data : `Dataset 0`
+Input Data : `Dataset 1`
+
+6. For ***Phase 2*** select only the relevant *Input Data* from the dropdown menu  
+Input Data : `Dataset 2`
+
+7. Click the `Submit` button at the bottom of the page to save changes.
+
 
 ***
 
