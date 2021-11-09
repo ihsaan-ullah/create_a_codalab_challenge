@@ -137,6 +137,9 @@ This script will create a zip bundle which you can upload to Codalab.
 ![Upload Bundle](images/upload_bundle.png)
 
 
+##### ⚠️ Note  
+You have to make changes according to the specifications and goals of your challenge before uploading it to Codalab.
+
 ***
 
 <br><br><br>
@@ -188,7 +191,7 @@ Follow the steps below to change datasets in your competition.
 
 4. Scroll down to the section `Phases`. 
 
-5. For ***Phase 1*** select the correct *Input Data* and *Public Data* from the dropdown menu  
+5. For ***Phase 1*** select the correct *Public Data* and *Input Data* from the dropdown menu  
     - Public Data : `Dataset 0`  
     - Input Data : `Dataset 1`
 
