@@ -107,7 +107,7 @@ git clone https://github.com/ihsaan-ullah/create_a_challenge.git
 
 ### Step 1 : Create Competition Bundle
 
-1. go to `utilities folder`
+1. go to `utilities` directory in the starting_kit
 ``` 
 cd create_a_challenge/starting_kit/utilities
 ```
@@ -142,8 +142,10 @@ This script will create a zip bundle which you can upload to Codalab.
 <br><br><br>
 
 ## ⚠️ Note
-The data should be in this format: [Data Format](https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat)  
+1. The data should be in this format: [Data Format](https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat)  
 You can ignore the *SUPER_CATEGORIES* in the data format for this competition. Check the `sample_data` provided in this [Starting Kit](starting_kit/) for reference.
+
+2. Make sure that the `sample_data` directory has a very small subset of `Dataset 0`.
 
 
 
