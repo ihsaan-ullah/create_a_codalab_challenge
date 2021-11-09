@@ -97,12 +97,25 @@ Follow the steps below to create a challenge on [Codalab](https://codalab.lisn.u
 ⚠️ A sample challenge with the `starting_kit` in this repository is given here: https://codalab.lisn.upsaclay.fr/competitions/74
 
 
+### Step 1 : Create Competition Bundle
+
+### Step 2 : Upload Bundle
+
 1. Create an account on the Codalab Website: https://codalab.lisn.upsaclay.fr/accounts/signup/
 
 2. Login into your account : https://codalab.lisn.upsaclay.fr/accounts/login/
 
 3. Click `My Competitions` in the top navigation bar
 ![My Competitions](images/my_competitions.png)
+
+4. Click `Competitions I'm Running`
+![Comp I'm running](images/competitions_i_am_running.png)
+
+5. Click `Create Competition` 
+![Create competition](images/create_competition.png)
+
+5. Click `Upload Competition Bundle` and upload the bundle created in ***Step 1***
+![Upload Bundle](images/upload_bundle.png)
 
 
 ***
