@@ -172,11 +172,30 @@ Follow the steps below to upload Public Data (`Dataset 0`) and Input/Reference D
 
 <br><br><br>
 
+
+
+## How to change datasets in a competition?
+Follow the steps below to change datasets in your competition.
+
+1. Click `My Competitions` in the top navigation bar
+![My Competitions](images/my_competitions.png)
+
+2. Click `Competitions I'm Running`
+![Comp I'm running](images/competitions_i_am_running.png)
+
+
+***
+
+<br><br><br>
+
+
 ## ⚠️ Note
 1. The data should be in this format: [Data Format](https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat)  
 You can ignore the *SUPER_CATEGORIES* in the data format for this competition. Check the `sample_data` provided in this [Starting Kit](starting_kit/) for reference.
 
 2. Make sure that the `sample_data` directory has a very small subset of `Dataset 0`.
+
+3. Make sure to zip the contents of a directory and not the directory itself when uploading the *Input Data* or *Public Data*
 
 
 
