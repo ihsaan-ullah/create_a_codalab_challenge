@@ -209,9 +209,7 @@ Follow the steps below to change datasets in your competition.
 
 # Docker
 On Codalab, this docker image is being used to run the challenge code
-```
-ihsaanullah/codalab-legacy:gpu
-```
+`ihsaanullah/codalab-legacy:gpu`
 
 You can clone this docker image and change it as per your challenge (installing required packages) and then use it in your challenge.
 
