@@ -206,6 +206,30 @@ Follow the steps below to change datasets in your competition.
 <br><br><br>
 
 
+
+# Docker
+On Codalab, this docker image is being used to run the challenge code
+```
+ihsaanullah/codalab-legacy:gpu
+```
+
+You can clone this docker image and change it as per your challenge (installing required packages) and then use it in your challenge.
+
+### How to Clone Docker Image?
+
+1. Install docker desktop app  
+https://www.docker.com/products/docker-desktop
+
+2. Pull the docker image
+```
+docker pull ihsaanullah/codalab-legacy:gpu
+```
+
+***
+
+<br><br><br>
+
+
 # ⚠️ Note
 1. The data should be in this format: [Data Format](https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat)  
 You can ignore the *SUPER_CATEGORIES* in the data format for this competition. Check the `sample_data` provided in this [Starting Kit](starting_kit/) for reference.
@@ -213,8 +237,6 @@ You can ignore the *SUPER_CATEGORIES* in the data format for this competition. C
 2. Make sure that the `sample_data` directory has a very small subset of `Dataset 0`.
 
 3. Make sure to zip the contents of a directory and not the directory itself when uploading the *Input Data* or *Public Data*
-
-
 
 
 ***
