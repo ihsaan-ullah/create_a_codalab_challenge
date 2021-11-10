@@ -223,6 +223,57 @@ https://www.docker.com/products/docker-desktop
 docker pull ihsaanullah/codalab-legacy:gpu
 ```
 
+### How to test the Docker Image?
+⚠️ The following commands are for linux.
+
+1. Zip your `starting_kit` (just the files inside the directory and not the directory itself)
+
+2. Create a temporary directory
+```
+mkdir ~/temp_dir
+```
+
+3. Copy the zip to this directory
+```
+cp starting_kit.zip ~/temp_dir
+```
+
+4. Run the docker and map the temp_dir to make it visible inside the docker
+```
+docker run -it -v ~/temp_dir:/home/temp_dir ihsaanullah/codalab-legacy:gpu
+```
+
+This will get you inside the docker container running the docker image and the promp will look like:  
+
+``` 
+root@c74a8b1ccaf7:/#
+```
+
+5. Go to `/home/temp_dir` and rund the starting kit *ingestion program* and *scoring program*. 
+
+```
+cd /home/temp_dir
+unzip starting_kit.zip
+cd starting_kit
+```
+
+Run ingestion program
+```
+python3 ingestion_program/ingestion.py sample_data sample_result_submission ingestion_program sample_code_submission
+```
+
+Run scoring program
+```
+python3 scoring_program/score.py sample_data sample_result_submission scoring_output
+```
+
+Exit the docker container
+```
+exit
+```
+
+
+
 ***
 
 <br><br><br>
