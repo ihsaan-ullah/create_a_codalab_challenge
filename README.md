@@ -302,7 +302,6 @@ docker commit CONTAINER_ID NEW_IMAGE_NAME
 ```
 
 6. Create a Public repository on docker-hub  
-Follow the instruction on the webpage https://docs.docker.com/docker-hub/repos/ to create a public repository on docker-hub
 
 7. Add a tag to the local image
 ```
@@ -314,6 +313,9 @@ docker tag <existing-image> <hub-user>/<repo-name>[:<tag>]
 docker push <hub-user>/<repo-name>:<tag>
 ```
 
+
+#### ⚠️ Note:
+For Steps 6-8, follow the instructions here: https://docs.docker.com/docker-hub/repos/
 
 ***
 
