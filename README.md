@@ -276,9 +276,43 @@ exit
 If you get an error for any package, you can install it using pip. When you exit the container, the packages you have installed are lost.
 
 
-## How to test the Docker Image?
-⚠️ The following commands are for linux.
+## How to create a docker image with installed packages?
+In order to create your docker image, install additional packeges in it and to use it in your challenge:
 
+1. Create container from the docker image and access in interactive mode
+```
+docker run -it ihsaanullah/codalab-legacy:gpu
+```
+
+2. Modify container as desired (install the required packages)
+
+3. Exit the container
+```
+exit
+```
+
+4. List launched containers and copy the ID of the container you have just modified
+```
+docker ps -a
+```
+
+5. Save to a new image
+```
+docker commit CONTAINER_ID NEW_IMAGE_NAME
+```
+
+6. Create a Public repository on docker-hub  
+Follow the instruction on the webpage https://docs.docker.com/docker-hub/repos/ to create a public repository on docker-hub
+
+7. Add a tag to the local image
+```
+docker tag <existing-image> <hub-user>/<repo-name>[:<tag>]
+```
+
+8. Push the image to your docker-hub
+```
+docker push <hub-user>/<repo-name>:<tag>
+```
 
 
 ***
