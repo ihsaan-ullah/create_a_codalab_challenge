@@ -213,7 +213,7 @@ On Codalab, this docker image is being used to run the challenge code
 
 You can clone this docker image and change it as per your challenge (installing required packages) and then use it in your challenge.
 
-### How to Clone Docker Image?
+## How to Clone Docker Image?
 
 1. Install docker desktop app  
 https://www.docker.com/products/docker-desktop
@@ -223,7 +223,7 @@ https://www.docker.com/products/docker-desktop
 docker pull ihsaanullah/codalab-legacy:gpu
 ```
 
-### How to test the Docker Image?
+## How to test the Docker Image?
 ⚠️ The following commands are for linux.
 
 1. Zip your `starting_kit` (just the files inside the directory and not the directory itself)
@@ -271,6 +271,13 @@ Exit the docker container
 ```
 exit
 ```
+
+#### ⚠️ Note:
+If you get an error for any package, you can install it using pip. When you exit the container, the packages you have installed are lost.
+
+
+## How to test the Docker Image?
+⚠️ The following commands are for linux.
 
 
 
