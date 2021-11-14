@@ -4,7 +4,8 @@ This repository is for **challenge organizers** to organize a challenge on [Coda
 
 This repository has a sample starting kit which is made specially to work with this [Data Format](https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat).
 
-A sample challenge with the `starting_kit` in this repository is given here: https://codalab.lisn.upsaclay.fr/competitions/201
+A sample challenge with the `starting_kit` in this repository is given here: [Sample Challenge](https://codalab.lisn.upsaclay.fr/competitions/201).
+
 
 ***
 
