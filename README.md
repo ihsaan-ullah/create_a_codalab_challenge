@@ -2,7 +2,7 @@
 
 This repository is for **challenge organizers** to organize a challenge on [Codalab](https://codalab.lisn.upsaclay.fr/).
 
-This repository has a sample starting kit which is made specially to work with this [Data Format](https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat).
+This repository has a sample `starting_kit` which is made specially to work with this [Data Format](https://github.com/ihsaan-ullah/meta-album/tree/master/DataFormat).
 
 A sample challenge with the `starting_kit` in this repository is given here: [Sample Challenge](https://codalab.lisn.upsaclay.fr/competitions/201).
 
