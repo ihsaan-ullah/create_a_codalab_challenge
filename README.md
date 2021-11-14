@@ -8,7 +8,24 @@ This repository has a sample starting kit which is made specially to work with t
 
 <br><br><br>
 
-# Understanding the Starting Kit
+
+# Table of Contents
+1. [Understanding the Starting Kit](#understanding_the_starting_kit)
+2. [Instructions about datasets](#instructions_about_datasets) 
+3. [How to create a challenge on Codalab?](#how_to_create_a_challenge_on_codalab) 
+4. [How to upload datasets on Codalab?](#how_to_upload_datasets_on_Codalab) 
+5. [How to change datasets in a competition?](#how_to_change_datasets_in_a_competition) 
+6. [Docker](#docker) 
+
+
+
+***
+
+<br><br><br>
+
+
+# Understanding the Starting Kit 
+<a name="understanding_the_starting_kit"></a>
 
 The starting kit consists of the following directories and files:
 
@@ -75,6 +92,8 @@ A readme file for an overview of the challenge
 <br><br><br>
 
 # Instructions about datasets
+<a name="instructions_about_datasets"></a>
+
 The challenge consists of two phases:  
 - `Data Phase 1`  
 - `Data Phase 2`
@@ -92,6 +111,8 @@ This challenge is designed for a triplet of datasets:
 <br><br><br>
 
 # How to create a challenge on Codalab?
+<a name="how_to_create_a_challenge_on_codalab"></a>
+
 Follow the steps below to create a challenge on [Codalab](https://codalab.lisn.upsaclay.fr/).  
 
 ⚠️ A sample challenge with the `starting_kit` in this repository is given here: https://codalab.lisn.upsaclay.fr/competitions/201
@@ -145,7 +166,9 @@ You have to make changes according to the specifications and goals of your chall
 <br><br><br>
 
 
-# How to upload datasets to Codalab?
+# How to upload datasets on Codalab?
+<a name="how_to_upload_datasets_on_Codalab"></a>
+
 Follow the steps below to upload Public Data (`Dataset 0`) and Input/Reference Data (`Dataset 1` and `Dataset 2`) to Codalab 
 
 1. Click `My Competitions` in the top navigation bar
@@ -178,6 +201,8 @@ Follow the steps below to upload Public Data (`Dataset 0`) and Input/Reference D
 
 
 # How to change datasets in a competition?
+<a name="how_to_change_datasets_in_a_competition"></a>
+
 Follow the steps below to change datasets in your competition.
 
 1. Click `My Competitions` in the top navigation bar
@@ -208,6 +233,8 @@ Follow the steps below to change datasets in your competition.
 
 
 # Docker
+<a name="docker"></a>
+
 On Codalab, this docker image is being used to run the challenge code
 `ihsaanullah/codalab-legacy:gpu`
 
