@@ -39,19 +39,17 @@ def read_solutions(data_dir):
 
 
     #----------------------------------------------------------------
-    # Read CSV
+    # Load CSV
     #----------------------------------------------------------------
-    if info["csv_with_tab"]:
-        data = pd.read_csv(CSV_PATH, sep="\t", encoding="utf-8") 
-    else:
-        data = pd.read_csv(CSV_PATH) 
+    data_df = pd.read_csv(CSV_PATH)
+        
     
     
 
     #----------------------------------------------------------------
     # Check Columns in CSV
     #----------------------------------------------------------------
-    csv_columns = data.columns
+    csv_columns = data_df.columns
 
 
 
@@ -66,19 +64,12 @@ def read_solutions(data_dir):
     #----------------------------------------------------------------
     # Settings from info JSON file
     #----------------------------------------------------------------
-    # True if CSV is tab separated otherwise false
-    CSV_WITH_TAB = info["csv_with_tab"]
 
     # category column name in csv
     CATEGORY_COLUMN = info["category_column_name"]
 
-    #----------------------------------------------------------------
-    # Load CSV
-    #----------------------------------------------------------------
-    if CSV_WITH_TAB:
-        data_df = pd.read_csv(CSV_PATH, sep="\t", encoding="utf-8") 
-    else:
-        data_df = pd.read_csv(CSV_PATH)
+    
+        
 
     data_df['label_cat'] = data_df[CATEGORY_COLUMN].astype('category')
 

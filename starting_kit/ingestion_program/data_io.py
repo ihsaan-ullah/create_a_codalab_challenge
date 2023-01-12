@@ -96,6 +96,11 @@ def read_data(data_dir):
 
 
 
+    #----------------------------------------------------------------
+    # Load CSV
+    #----------------------------------------------------------------
+    data_df = pd.read_csv(CSV_PATH)
+
 
     #----------------------------------------------------------------
     # Read JSON
@@ -104,20 +109,13 @@ def read_data(data_dir):
     info = json.loads(f.read())
 
 
-    #----------------------------------------------------------------
-    # Read CSV
-    #----------------------------------------------------------------
-    if info["csv_with_tab"]:
-        data = pd.read_csv(CSV_PATH, sep="\t", encoding="utf-8") 
-    else:
-        data = pd.read_csv(CSV_PATH) 
 
 
 
     #----------------------------------------------------------------
     # Check Columns in CSV
     #----------------------------------------------------------------
-    csv_columns = data.columns
+    csv_columns = data_df.columns
 
     #Image 
     if not info["image_column_name"] in csv_columns:
@@ -149,8 +147,6 @@ def read_data(data_dir):
     #----------------------------------------------------------------
     # Settings from info JSON file
     #----------------------------------------------------------------
-    # True if CSV is tab separated otherwise false
-    CSV_WITH_TAB = info["csv_with_tab"]
 
     # category column name in csv
     CATEGORY_COLUMN = info["category_column_name"]
@@ -166,13 +162,8 @@ def read_data(data_dir):
     print("###-------------------------------------###\n\n")
     
 
-    #----------------------------------------------------------------
-    # Load CSV
-    #----------------------------------------------------------------
-    if CSV_WITH_TAB:
-        data_df = pd.read_csv(CSV_PATH, sep="\t", encoding="utf-8") 
-    else:
-        data_df = pd.read_csv(CSV_PATH)
+    
+        
 
 
 
@@ -235,13 +226,11 @@ def read_data(data_dir):
     for image_name in data_dict['train_data']:
         file = IMAGES_PATH+"/"+image_name
         img = io.imread(file)
-        # img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         train_images.append(img)
 
     for image_name in data_dict['test_data']:
         file = IMAGES_PATH+"/"+image_name
         img = io.imread(file)
-        # img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         test_images.append(img)
         
     data_dict['train_images'] = np.asarray(train_images)
@@ -253,17 +242,6 @@ def read_data(data_dir):
     print("-------------------------------------\n\n")
     
 
-    #----------------------------------------------------------------
-    # Statistics
-    #----------------------------------------------------------------
-    # print("###-------------------------------------###")
-    # print("### Data Statistics")
-    # print("###-------------------------------------###\n")
-    # print("Total Categories/Classes : ", total_categories)
-    # print("Number of images : ", data_dict['images'].sum())
-    # print("Train Images:", len(data_dict['train_images']))
-    # print("Test Images:", len(data_dict['train_images']))
-    
     
 
     
